@@ -1,4 +1,4 @@
-package com.amigopay.user.common.validation.annotation;
+package com.amigopay.user.user.validation.annotation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

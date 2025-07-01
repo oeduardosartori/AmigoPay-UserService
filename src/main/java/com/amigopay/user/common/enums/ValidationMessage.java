@@ -34,7 +34,10 @@ public enum ValidationMessage {
     USER_NOT_FOUND("validation.user.not_found"),
 
     // Internal error
-    INTERNAL_ERROR("validation.internal.error");
+    INTERNAL_ERROR("validation.internal.error"),
+
+    // Invalid credentials
+    INVALID_CREDENTIALS("validation.invalid.credentials");
 
     private final String key;
 

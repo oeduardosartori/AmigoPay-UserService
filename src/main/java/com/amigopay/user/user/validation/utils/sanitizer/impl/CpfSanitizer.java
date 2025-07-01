@@ -1,6 +1,6 @@
-package com.amigopay.user.common.sanitizer.impl;
+package com.amigopay.user.user.validation.utils.sanitizer.impl;
 
-import com.amigopay.user.common.sanitizer.Sanitizer;
+import com.amigopay.user.user.validation.utils.sanitizer.Sanitizer;
 import org.springframework.stereotype.Component;
 
 @Component

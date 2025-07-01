@@ -1,7 +1,7 @@
 package com.amigopay.user.user.validation.rule.create;
 
 import com.amigopay.user.user.dto.CreateUserRequest;
-import com.amigopay.user.user.validation.utils.UserSanitizer;
+import com.amigopay.user.user.validation.utils.sanitizer.UserSanitizer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

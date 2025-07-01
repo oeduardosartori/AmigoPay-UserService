@@ -1,7 +1,7 @@
 package com.amigopay.user.user.dto;
 
-import com.amigopay.user.common.validation.annotation.ValidName;
-import com.amigopay.user.common.validation.annotation.ValidPassword;
+import com.amigopay.user.user.validation.annotation.ValidName;
+import com.amigopay.user.user.validation.annotation.ValidPassword;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;

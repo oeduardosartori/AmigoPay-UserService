@@ -1,8 +1,8 @@
-package com.amigopay.user.user.validation.utils;
+package com.amigopay.user.user.validation.utils.sanitizer;
 
-import com.amigopay.user.common.sanitizer.impl.CpfSanitizer;
-import com.amigopay.user.common.sanitizer.impl.EmailSanitizer;
-import com.amigopay.user.common.sanitizer.impl.NameSanitizer;
+import com.amigopay.user.user.validation.utils.sanitizer.impl.CpfSanitizer;
+import com.amigopay.user.user.validation.utils.sanitizer.impl.EmailSanitizer;
+import com.amigopay.user.user.validation.utils.sanitizer.impl.NameSanitizer;
 import com.amigopay.user.user.dto.CreateUserRequest;
 import com.amigopay.user.user.dto.UpdateUserRequest;
 import lombok.RequiredArgsConstructor;
