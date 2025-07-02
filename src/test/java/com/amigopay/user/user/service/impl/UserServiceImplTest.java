@@ -3,7 +3,7 @@ package com.amigopay.user.user.service.impl;
 import com.amigopay.user.common.enums.ValidationMessage;
 import com.amigopay.user.common.util.MessageResolver;
 import com.amigopay.user.exception.BusinessException;
-import com.amigopay.user.messaging.event.UserCreatedEvent;
+import com.amigopay.events.UserCreatedEvent;
 import com.amigopay.user.messaging.producer.UserEventPublisher;
 import com.amigopay.user.user.dto.CreateUserRequest;
 import com.amigopay.user.user.dto.UpdateUserRequest;

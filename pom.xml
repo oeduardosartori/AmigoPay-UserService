@@ -48,6 +48,14 @@
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
 
+		<!-- Common Events AmigoPay -->
+		<dependency>
+			<groupId>com.amigopay</groupId>
+			<artifactId>amigopay-events</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+
 		<!-- MapStruct -->
 		<dependency>
 			<groupId>org.mapstruct</groupId>

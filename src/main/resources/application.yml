@@ -1,9 +1,9 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: user-service
-
-  server:
-    port: 8081
 
   datasource:
     url: ${USER_DB_URL}

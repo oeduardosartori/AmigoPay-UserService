@@ -1,6 +1,6 @@
 package com.amigopay.user.messaging.producer.impl;
 
-import com.amigopay.user.messaging.event.UserCreatedEvent;
+import com.amigopay.events.UserCreatedEvent;
 import com.amigopay.user.messaging.producer.UserEventPublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
