@@ -33,6 +33,9 @@ public enum ValidationMessage {
     // User
     USER_NOT_FOUND("validation.user.not_found"),
 
+    // Kafka
+    FAILED_PUBLISH_EVENT("validation.failed.publish.event"),
+
     // Internal error
     INTERNAL_ERROR("validation.internal.error"),
 

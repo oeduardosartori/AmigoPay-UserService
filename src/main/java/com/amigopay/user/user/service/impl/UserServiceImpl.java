@@ -3,8 +3,7 @@ package com.amigopay.user.user.service.impl;
 import com.amigopay.user.common.enums.ValidationMessage;
 import com.amigopay.user.common.util.MessageResolver;
 import com.amigopay.user.exception.BusinessException;
-import com.amigopay.events.UserCreatedEvent;
-import com.amigopay.user.messaging.producer.UserEventPublisher;
+import com.amigopay.user.messaging.publisher.UserEventPublisher;
 import com.amigopay.user.user.dto.CreateUserRequest;
 import com.amigopay.user.user.dto.UpdateUserRequest;
 import com.amigopay.user.user.dto.UserResponse;
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserValidator userValidator;
     private final MessageResolver messageResolver;
-    private final UserEventPublisher userEventPublisher;
+    private final UserEventPublisher eventPublisher;
 
     @Override
     public UserResponse createUser(CreateUserRequest request) {
@@ -44,15 +43,7 @@ public class UserServiceImpl implements UserService {
         user.setPasswordHash(hashedPassword);
 
         User savedUser = userRepository.save(user);
-
-        UserCreatedEvent event = new UserCreatedEvent(
-                savedUser.getId(),
-                savedUser.getFirstName(),
-                savedUser.getLastName(),
-                savedUser.getEmail(),
-                savedUser.getCreatedAt()
-        );
-        userEventPublisher.publishUserCreated(event);
+        eventPublisher.publishUserCreated(savedUser);
 
         return userMapper.toResponse(savedUser);
     }

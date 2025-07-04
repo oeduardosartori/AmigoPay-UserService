@@ -1,4 +1,4 @@
-package com.amigopay.user.config;
+package com.amigopay.user.messaging.config;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;

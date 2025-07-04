@@ -4,7 +4,7 @@ import com.amigopay.user.common.enums.ValidationMessage;
 import com.amigopay.user.common.util.MessageResolver;
 import com.amigopay.user.exception.BusinessException;
 import com.amigopay.events.UserCreatedEvent;
-import com.amigopay.user.messaging.producer.UserEventPublisher;
+import com.amigopay.user.messaging.publisher.UserEventPublisher;
 import com.amigopay.user.user.dto.CreateUserRequest;
 import com.amigopay.user.user.dto.UpdateUserRequest;
 import com.amigopay.user.user.dto.UserResponse;
@@ -61,7 +61,7 @@ public class UserServiceImplTest {
     private MessageResolver messageResolver;
 
     @Mock
-    private UserEventPublisher userEventPublisher;
+    private UserEventPublisher eventPublisher;
 
     private User user;
     private UUID userId;
@@ -129,7 +129,7 @@ public class UserServiceImplTest {
         // then
         then(userValidator).should().validateCreateUser(createUserRequest);
         then(userRepository).should().save(user);
-        then(userEventPublisher).should().publishUserCreated(any(UserCreatedEvent.class));
+        then(eventPublisher).should().publishUserCreated(any(User.class));
         assertThat(result).isEqualTo(userResponse);
     }
 
@@ -255,15 +255,15 @@ public class UserServiceImplTest {
         userService.createUser(createUserRequest);
 
         // then
-        ArgumentCaptor<UserCreatedEvent> eventCaptor = ArgumentCaptor.forClass(UserCreatedEvent.class);
-        then(userEventPublisher).should().publishUserCreated(eventCaptor.capture());
+        ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
+        then(eventPublisher).should().publishUserCreated(userCaptor.capture());
 
-        UserCreatedEvent event = eventCaptor.getValue();
-        assertThat(event.id()).isEqualTo(user.getId());
-        assertThat(event.firstName()).isEqualTo(user.getFirstName());
-        assertThat(event.lastName()).isEqualTo(user.getLastName());
-        assertThat(event.email()).isEqualTo(user.getEmail());
-        assertThat(event.createdAt()).isEqualTo(user.getCreatedAt());
+        User capturedUser = userCaptor.getValue();
+        assertThat(capturedUser.getId()).isEqualTo(user.getId());
+        assertThat(capturedUser.getFirstName()).isEqualTo(user.getFirstName());
+        assertThat(capturedUser.getLastName()).isEqualTo(user.getLastName());
+        assertThat(capturedUser.getEmail()).isEqualTo(user.getEmail());
+        assertThat(capturedUser.getCreatedAt()).isEqualTo(user.getCreatedAt());
     }
 
     @Test
